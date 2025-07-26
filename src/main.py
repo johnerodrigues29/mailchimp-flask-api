@@ -3,6 +3,7 @@ import sys
 # DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
+from flask import jsonify
 from flask import Flask, send_from_directory
 from src.models.user import db
 from src.routes.user import user_bp
@@ -40,3 +41,11 @@ def serve(path):
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
+@app.route('/health')
+def health_check():
+    """
+    Este é o endpoint que o UptimeRobot irá visitar.
+    Ele apenas retorna uma resposta simples para mostrar que a API está viva.
+    """
+    return jsonify(status="ok"), 200
