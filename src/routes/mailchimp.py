@@ -5,9 +5,9 @@ import os
 
 mailchimp_bp = Blueprint('mailchimp_bp', __name__)
 
-MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY', '0f7ddd0bbb0f34b5a75a02824ff698ef-us22')
-MAILCHIMP_LIST_ID = os.environ.get('MAILCHIMP_LIST_ID', '9114485dd9')
-MAILCHIMP_DATACENTER = os.environ.get('MAILCHIMP_DATACENTER', 'us22')
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY')
+MAILCHIMP_LIST_ID = os.environ.get('MAILCHIMP_LIST_ID')
+MAILCHIMP_DATACENTER = os.environ.get('MAILCHIMP_DATACENTER')
 
 @mailchimp_bp.route('/subscribe', methods=['POST'])
 @cross_origin()
